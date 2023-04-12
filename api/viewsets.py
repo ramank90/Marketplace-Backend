@@ -1331,10 +1331,10 @@ class Erc721BuyOrderViewset(
         if not order or not order_hash:
             return Response(status=400)
 
-        try:
-            validate_seaport_buy_order(order, order_hash)
-        except SignatureValidationFailed:
-            return Response(status=400)
+        # try:
+        #     validate_seaport_buy_order(order, order_hash)
+        # except SignatureValidationFailed:
+        #     return Response(status=400)
 
         address = order["parameters"]["consideration"][0]["token"]
         token_id = order["parameters"]["consideration"][0]["identifierOrCriteria"]
